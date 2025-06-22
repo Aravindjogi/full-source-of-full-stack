@@ -5,6 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/startup-india-logo-gradient-circle.png">
+    <style>
+        * {
+
+            color: rgb(255, 255, 255);
+            background-color: black;
+        }
+
+        img {
+            border: 5px dotted;
+            border-radius: 10px gold solid;
+            height: 100px;
+            width: 100px;
+
+        }
+
+        .navbar1 {
+
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        ul> :first-child {
+            color: greenyellow;
+        }
+
+        ul>li :only-child {
+            font-size: 500px;
+            /* for only single child is there we use the only child this can make a stylling to that perticular tag only of the element where we are given in html
+        }
+
+        ul> :nth-child(3) {
+            /*--- pseudo --*/
+            color: rgb(180, 29, 231);
+            background: #21212e;
+            background: radial-gradient(circle, rgba(33, 33, 46, 1) 0%, rgba(28, 28, 61, 1) 14%, rgba(22, 22, 81, 1) 33%, rgba(10, 118, 84, 1) 54%, rgba(9, 9, 121, 1) 73%, rgba(187, 4, 190, 1) 87%, rgba(0, 212, 255, 1) 100%);
+            color: transparent;
+            background-clip: text;
+            /* if we use any gradient colors as a backgroud that wants to apperers in for color we use the background-cell: text and with color as transparent then it will apper*/
+        }
+
+        .orderedlist> :last-child {
+            background-color: #00BAAD;
+            background-image: linear-gradient(90deg, transparent 50%,
+                    rgba(255, 255, 255, .5) 50%);
+            background-size: 50px 50px;
+            ;
+        }
+
+        #orderedlist> :only-child {
+            background-color: #00BAAD;
+            background-image: linear-gradient(90deg, transparent 50%,
+                    rgba(255, 255, 255, .5) 50%);
+            background-size: 50px 50px;
+            color: transparent;
+            background-clip: text;
+
+        }
+
+        .aravind {
+            background-color: rgb(114, 114, 114);
+            font-size: 100px;
+            border: 500px;
+            height: 125px;
+            border-radius: 50px;
+            width: 350px;
+        }
+
+        table :nth-child(2n) {
+            color: pink;
+        }
+
+        .nth :nth-child(2n) {
+            background-color: rgb(51, 52, 42);
+            width: max-content;
+        }
+
+        h1 {
+            border: 5px goldenrod solid;
+            border-radius: 50px;
+            box-shadow: 10px 20px 30px 30px #407edb;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        iframe {
+            border-radius: 500px;
+            display: flex;
+            box-shadow: 100px 100px 100px 100px gold;
+        }
+
+        #imgfam {
+            border-radius: 500px;
+            box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.3);
+            background-image: url(/fam.jpg);
+            background-size: cover;
+            background-position: right;
+            height: 1000px;
+            width: 1000px;
+            /* this is for image in image as a background image */
+
+        }
+    </style>
 
 </head>
 
@@ -27,45 +130,72 @@
     </form>
     ----->
 
+    <nav>
+        <div class="navbar1">
+            <a href="https://www.youtube.com/watch?v=uGCmE_1SwyU&list=RDuGCmE_1SwyU&start_radio=1">
+                <button>
+                    Create account
+                </button>
+            </a>
+            <iframe width="500px" height="500px" src="/index.html" allowfullscreen></iframe>
+            <button>login</button>
+            <button>
+                Startup ideas
+            </button>
+            <button>
+                Funds
+            </button>
+            <button>Overall Details</button>
+            <button>
+                About Comapany
+            </button>
+            <button>
+                developer
+            </button>
+        </div>
+    </nav>
+
+
     <h1>course registration form</h1>
-    <form action="">
+    <form action="hi">
 
 
         <fieldset>
             <legend>Personal Details</legend>
             <table>
 
-                <tr>
+                <tr id="frist">
                     <td><label for="FN">Frist name</label></td>
                     <td><input type="text" required placeholder="frist name"></td>
+                    <td>hi</td>
                 </tr>
-                <tr>
+                <tr id="Second">
                     <td><label for="SN">surname</label></td>
                     <td><input type="text" name="" required placeholder="surname"></td>
 
                 </tr>
-                <tr>
+                <tr id="Third">
                     <td><label for="PH">mobile no</label></td>
                     <td><input type="tel" name="" required placeholder="9999999999"></td>
                 </tr>
-                <tr>
+                <tr id="Fourth">
                     <td><label for="EM">email</label></td>
                     <td><input type="email" name="" placeholder="A@gmail.com" required></td>
                 </tr>
-                <tr>
+                <tr id="Sixth">
                     <td><label for="PS">password</label></td>
                     <td><input type="password" name="" required></td>
                 </tr>
-                <tr>
+                <tr id="Seventh">
                     <td><label for="CPS">confirm password</label></td>
                     <td> <input type="password" name="" required></td>
                 </tr>
 
-                <tr>
+                <tr id="Eighth">
                     <td><label for="DOB">DOB</label><br></td>
                     <td><input type="date" name="" id="" required placeholder="11/11/1111"></td>
                 </tr>
-                <tr>
+                <tr id="ninth">
                     <td><label for="G">Gender</label></td>
                     <td>
                         <input type="radio" name="gender" value="Male"> Male
@@ -74,7 +204,7 @@
                     </td>
                 </tr>
 
-                <tr>
+                <tr id="tenth">
                     <td><label for="SC">select country</label></td>
                     <td>
                         <select name="plz select " id="">
@@ -91,7 +221,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="reset" name="reset" required></td>
+                    <td id="reset"><input type="reset" name="reset" required></td>
                 </tr>
             </table>
         </fieldset>
@@ -130,5 +260,69 @@
         </fieldset>
         </table>
     </form>
+
+    <ul>
+
+        <li>
+            python
+        </li>
+        <li>
+            css
+        </li>
+        <li>
+            javascript
+        </li>
+
+    </ul>
+    <ol class="orderedlist" type="i">
+        <a href="h1" target="_top">
+            <li>
+                Aravind</li>
+            <li>lokesh</li>
+    </ol><!--ordered list is called as ol tag-->
+    <ol id="orderedlist" type="i">
+
+        <li class="aravind">
+            Aravind</li>
+        <li><img src="/startup-india-logo-gradient-circle.png" alt=""></li>
+    </ol>
+    </a>
+
+
+
+    <table border="10px">
+        <tr>
+            <th>
+                name
+            </th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Aravind</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>Lokesh</td>
+            <td>16</td>
+        </tr>
+    </table>
+    <ol class="nth">
+        <li>
+            aravindjogi
+        </li>
+        <li>age is 23
+
+        </li>
+        <li>gender is male</li>
+        <li>core knlowdge </li>
+    </ol>
+    <table id="images">
+        <tr>
+            <td id="imgfam">
+                <img src="/fam.jpg" alt="no iamge">
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
