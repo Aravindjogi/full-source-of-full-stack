@@ -1,328 +1,2304 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/startup-india-logo-gradient-circle.png">
-    <style>
-        * {
-
-            color: rgb(255, 255, 255);
-            background-color: black;
-        }
-
-        img {
-            border: 5px dotted;
-            border-radius: 10px gold solid;
-            height: 100px;
-            width: 100px;
-
-        }
-
-        .navbar1 {
-
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        ul> :first-child {
-            color: greenyellow;
-        }
-
-        ul>li :only-child {
-            font-size: 500px;
-            /* for only single child is there we use the only child this can make a stylling to that perticular tag only of the element where we are given in html
-        }
-
-        ul> :nth-child(3) {
-            /*--- pseudo --*/
-            color: rgb(180, 29, 231);
-            background: #21212e;
-            background: radial-gradient(circle, rgba(33, 33, 46, 1) 0%, rgba(28, 28, 61, 1) 14%, rgba(22, 22, 81, 1) 33%, rgba(10, 118, 84, 1) 54%, rgba(9, 9, 121, 1) 73%, rgba(187, 4, 190, 1) 87%, rgba(0, 212, 255, 1) 100%);
-            color: transparent;
-            background-clip: text;
-            /* if we use any gradient colors as a backgroud that wants to apperers in for color we use the background-cell: text and with color as transparent then it will apper*/
-        }
-
-        .orderedlist> :last-child {
-            background-color: #00BAAD;
-            background-image: linear-gradient(90deg, transparent 50%,
-                    rgba(255, 255, 255, .5) 50%);
-            background-size: 50px 50px;
-            ;
-        }
-
-        #orderedlist> :only-child {
-            background-color: #00BAAD;
-            background-image: linear-gradient(90deg, transparent 50%,
-                    rgba(255, 255, 255, .5) 50%);
-            background-size: 50px 50px;
-            color: transparent;
-            background-clip: text;
-
-        }
-
-        .aravind {
-            background-color: rgb(114, 114, 114);
-            font-size: 100px;
-            border: 500px;
-            height: 125px;
-            border-radius: 50px;
-            width: 350px;
-        }
-
-        table :nth-child(2n) {
-            color: pink;
-        }
-
-        .nth :nth-child(2n) {
-            background-color: rgb(51, 52, 42);
-            width: max-content;
-        }
-
-        h1 {
-            border: 5px goldenrod solid;
-            border-radius: 50px;
-            box-shadow: 10px 20px 30px 30px #407edb;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-
-        iframe {
-            border-radius: 500px;
-            display: flex;
-            box-shadow: 100px 100px 100px 100px gold;
-        }
-
-        #imgfam {
-            border-radius: 500px;
-            box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.3);
-            background-image: url(/fam.jpg);
-            background-size: cover;
-            background-position: right;
-            height: 1000px;
-            width: 1000px;
-            /* this is for image in image as a background image */
-
-        }
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="/image.png" type="image/x-icon">
+  <title>Job Portal Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <style>
+    :root {
+      --primary: #20c997;
+      --secondary: #007bff;
+      --danger: #dc3545;
+      --success: #28a745;
+      --warning: #fd7e14;
+      --purple: #6f42c1;
+      --bg-light: #f4f6f9;
+      --bg-dark: #1e2125;
+      --text-light: #2c3e50;
+      --text-dark: #e9ecef;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #2c3034;
+      --comment-bg-light: #f8f9fa;
+      --comment-bg-dark: #343a40;
+      --glass-bg: rgba(255,255,255,0.15);
+      --glass-border: rgba(255,255,255,0.2);
+    }
+    [data-theme="dark"] {
+      --bg-light: #1e2125;
+      --bg-dark: #f4f6f9;
+      --text-light: #e9ecef;
+      --text-dark: #2c3e50;
+      --card-bg-light: #2c3034;
+      --card-bg-dark: #ffffff;
+      --comment-bg-light: #343a40;
+      --comment-bg-dark: #f8f9fa;
+      --glass-bg: rgba(0,0,0,0.25);
+      --glass-border: rgba(0,0,0,0.3);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background 0.3s, color 0.3s;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2c3e50, var(--primary));
+      padding: 16px 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: glow 3s infinite;
+    }
+    .navbar.logged-in {
+      background: linear-gradient(135deg, var(--primary), #17a2b8);
+    }
+    .navbar-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .navbar a {
+      color: var(--text-dark);
+      text-decoration: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--warning), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease;
+    }
+    .navbar a:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .navbar a:hover {
+      background: var(--glass-bg);
+      box-shadow: 0 0 20px rgba(32,201,151,0.4);
+      transform: translateY(-3px);
+    }
+    .navbar a.active {
+      background: var(--secondary);
+      color: white;
+      box-shadow: 0 0 25px rgba(0,123,255,0.6);
+      transform: translateY(-2px);
+    }
+    .hamburger {
+      display: none;
+      font-size: 1.6rem;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .hamburger:hover {
+      transform: rotate(90deg);
+    }
+    .theme-toggle {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      color: var(--text-dark);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 50%;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .theme-toggle:hover {
+      transform: rotate(360deg);
+      box-shadow: 0 0 20px rgba(253,126,20,0.4);
+    }
+    .container {
+      max-width: 1280px;
+      margin: 40px auto;
+      padding: 24px;
+      background: var(--card-bg-light);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease;
+    }
+    .welcome {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--primary);
+      animation: slideIn 0.6s ease;
+      letter-spacing: 0.5px;
+    }
+    .section {
+      display: none;
+      padding: 20px;
+      border-radius: 12px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      animation: fadeInSection 0.5s ease;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      color: var(--secondary);
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+      position: relative;
+      letter-spacing: 0.5px;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--warning), var(--primary));
+      border-radius: 2px;
+    }
+    h2.profile { color: var(--purple); }
+    h2.funds { color: var(--success); }
+    h2.ideas { color: var(--danger); }
+    h2.developer-dashboard, h2.developer-stats, h2.developer-analytics, h2.about-company { color: var(--warning); }
+    h3 {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      margin: 24px 0 12px;
+      font-weight: 600;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #dee2e6;
+      border-radius: 10px;
+      background: var(--card-bg-light);
+      color: var(--text-light);
+      font-size: 1rem;
+      font-weight: 400;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 12px rgba(32,201,151,0.4);
+      transform: scale(1.01);
+      outline: none;
+    }
+    label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      color: #6c757d;
+      font-size: 1rem;
+      font-weight: 400;
+      transition: all 0.2s;
+      pointer-events: none;
+    }
+    input:focus + label, input:not(:placeholder-shown) + label,
+    textarea:focus + label, textarea:not(:placeholder-shown) + label,
+    select:focus + label, select:not([value=""]) + label {
+      top: -12px;
+      left: 10px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      background: var(--card-bg-light);
+      padding: 0 6px;
+      font-weight: 500;
+    }
+    select {
+      appearance: none;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="7"><polyline points="1,1 7,6 13,1" stroke="%232c3e50" stroke-width="2" fill="none"/></svg>') no-repeat right 16px center;
+      background-size: 14px;
+      padding-right: 40px;
+    }
+    [data-theme="dark"] select {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="7"><polyline points="1,1 7,6 13,1" stroke="%23e9ecef" stroke-width="2" fill="none"/></svg>') no-repeat right 16px center;
+    }
+    button {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--success), var(--primary));
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+    }
+    button:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      background: linear-gradient(135deg, var(--primary), var(--success));
+      animation: pulse 1s infinite;
+    }
+    button:active {
+      transform: translateY(0);
+    }
+    button .ripple {
+      position: absolute;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+    }
+    button.delete {
+      background: linear-gradient(135deg, var(--danger), #c82333);
+    }
+    button.edit {
+      background: linear-gradient(135deg, var(--secondary), #0056b3);
+      margin-right: 12px;
+    }
+    button.upvote {
+      background: linear-gradient(135deg, var(--success), #218838);
+      margin-right: 12px;
+    }
+    button.downvote {
+      background: linear-gradient(135deg, var(--danger), #c82333);
+      margin-right: 12px;
+    }
+    button.comment {
+      background: linear-gradient(135deg, var(--purple), #5a32a3);
+      margin-top: 12px;
+    }
+    button.export, button.cta {
+      background: linear-gradient(135deg, var(--warning), #e0a800);
+      margin: 12px 0;
+    }
+    button.cancel {
+      background: linear-gradient(135deg, #6c757d, #495057);
+      margin-left: 12px;
+    }
+    .idea, .fund-item, .profile-item, .stats-item, .analytics-item {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      padding: 24px;
+      margin: 16px 0;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 5px solid var(--primary);
+    }
+    .idea:hover, .fund-item:hover, .profile-item:hover, .stats-item:hover, .analytics-item:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .idea-details {
+      display: none;
+      margin-top: 16px;
+      padding: 16px;
+      background: var(--card-bg-light);
+      border-radius: 10px;
+      color: var(--text-light);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: slideIn 0.5s ease;
+    }
+    .comment {
+      background: var(--comment-bg-light);
+      padding: 14px 16px;
+      margin: 12px 0;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.3s, opacity 0.3s;
+      animation: fadeInComment 0.5s ease;
+      border-left: 4px solid var(--purple);
+    }
+    .comment:hover {
+      transform: translateX(6px);
+    }
+    .comment p {
+      margin: 0;
+      flex: 1;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+    .comment .delete-comment {
+      background: transparent;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 6px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .comment .delete-comment:hover {
+      color: #c82333;
+      transform: scale(1.3);
+    }
+    .error {
+      color: var(--danger);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-weight: 400;
+    }
+    .filter {
+      margin-bottom: 24px;
+    }
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.8);
+      padding: 12px 24px;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      animation: bounceIn 0.4s ease forwards;
+      z-index: 2000;
+      max-width: 90%;
+      text-align: center;
+      transition: top 0.3s ease;
+    }
+    .toast.success {
+      background: linear-gradient(135deg, var(--success), var(--primary));
+    }
+    .toast.error {
+      background: linear-gradient(135deg, var(--danger), #c82333);
+    }
+    .toast i {
+      margin-right: 12px;
+    }
+    .toast .close-toast {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-left: 16px;
+      transition: transform 0.2s;
+    }
+    .toast .close-toast:hover {
+      transform: scale(1.2);
+    }
+    .toast + .toast {
+      margin-top: 10px;
+    }
+    .progress-bar-container {
+      width: 100%;
+      background: var(--bg-dark);
+      border-radius: 12px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 24px;
+      background: linear-gradient(135deg, var(--success), var(--primary));
+      border-radius: 12px;
+      transition: width 1s ease;
+      animation: fillProgress 1s ease forwards;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: var(--card-bg-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--bg-dark);
+      font-weight: 400;
+    }
+    th {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    tr:nth-child(even) {
+      background: rgba(0,0,0,0.05);
+    }
+    tr:hover {
+      background: rgba(0,0,0,0.1);
+    }
+    .stats-grid, .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .chart-container {
+      background: var(--card-bg-light);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+      margin: 24px 0;
+      max-width: 700px;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    .about-hero {
+      text-align: center;
+      padding: 40px 24px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      animation: slideIn 0.6s ease;
+    }
+    .about-hero h2 {
+      font-size: 2.4rem;
+      margin-bottom: 24px;
+    }
+    .about-hero p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      color: var(--text-light);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-hero i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content {
+      background: var(--card-bg-light);
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideIn 0.4s ease;
+      position: relative;
+    }
+    .modal-content h3 {
+      margin-bottom: 20px;
+      color: var(--secondary);
+    }
+    .modal-content .close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .modal-content .close-modal:hover {
+      transform: scale(1.2);
+    }
+    .qr-code {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .qr-code canvas {
+      max-width: 200px;
+      border: 4px solid var(--primary);
+      border-radius: 8px;
+    }
+    .bank-details {
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 16px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid var(--glass-border);
+    }
+    .bank-details p {
+      margin: 8px 0;
+      color: var(--text-light);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounceIn {
+      0% { transform: translateX(-50%) scale(0.8); opacity: 0; }
+      60% { transform: translateX(-50%) scale(1.05); opacity: 1; }
+      100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    }
+    @keyframes bounceOut {
+      0% { transform: translateX(-50%) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) scale(0.8); opacity: 0; }
+    }
+    @keyframes fillProgress {
+      from { width: 0; }
+    }
+    @keyframes ripple {
+      to { transform: scale(4); opacity: 0; }
+    }
+    @keyframes fadeInComment {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: translateY(-4px) scale(1.05); }
+      50% { transform: translateY(-4px) scale(1.08); }
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 8px rgba(32,201,151,0.3); }
+      50% { box-shadow: 0 0 24px rgba(32,201,151,0.5); }
+      100% { box-shadow: 0 0 8px rgba(32,201,151,0.3); }
+    }
+    @media (max-width: 600px) {
+      .container {
+        margin: 16px;
+        padding: 16px;
+      }
+      .navbar {
+        padding: 12px 16px;
+      }
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(135deg, #2c3e50, var(--primary));
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 16px;
+        z-index: 999;
+      }
+      .navbar-links.active {
+        display: flex;
+      }
+      .navbar a {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+      .hamburger {
+        display: block;
+      }
+      .theme-toggle {
+        font-size: 1.1rem;
+        padding: 10px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      h3 {
+        font-size: 1.3rem;
+      }
+      input, textarea, select, button {
+        font-size: 0.95rem;
+        padding: 12px;
+      }
+      button {
+        padding: 12px 24px;
+      }
+      button.comment, button.export, button.cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      .toast {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        max-width: 80%;
+        top: 10px;
+      }
+      .progress-bar {
+        height: 20px;
+      }
+      th, td {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+      .idea, .fund-item, .profile-item, .stats-item, .analytics-item {
+        padding: 16px;
+        margin: 12px 0;
+      }
+      .comment {
+        font-size: 0.85rem;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .comment p {
+        font-size: 0.9rem;
+      }
+      .comment .delete-comment {
+        font-size: 1rem;
+        align-self: flex-end;
+      }
+      .form-group input[id^="comment-input-"] {
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+      .form-group label[for^="comment-input-"] {
+        font-size: 0.9rem;
+        top: 12px;
+        left: 12px;
+      }
+      .form-group input[id^="comment-input-"]:focus + label,
+      .form-group input[id^="comment-input-"]:not(:placeholder-shown) + label {
+        top: -10px;
+        font-size: 0.75rem;
+      }
+      .stats-grid, .analytics-grid {
+        grid-template-columns: 1fr;
+      }
+      .chart-container {
+        padding: 16px;
+      }
+      .about-hero {
+        padding: 24px 16px;
+      }
+      .about-hero h2 {
+        font-size: 2rem;
+      }
+      .about-hero p {
+        font-size: 1rem;
+      }
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+      .modal-content {
+        width: 95%;
+        padding: 16px;
+      }
+      .qr-code canvas {
+        max-width: 150px;
+      }
+    }
+    @media (min-width: 600px) and (max-width: 900px) {
+      .container {
+        max-width: 800px;
+        padding: 20px;
+      }
+      .navbar a {
+        padding: 12px 16px;
+        font-size: 0.95rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      input, textarea, select, button {
+        font-size: 0.95rem;
+      }
+      button.comment, button.export, button.cta {
+        padding: 12px 24px;
+      }
+      .idea, .fund-item, .profile-item, .stats-item, .analytics-item {
+        margin: 12px 0;
+      }
+      th, td {
+        padding: 14px;
+        font-size: 0.95rem;
+      }
+      .comment {
+        font-size: 0.9rem;
+        padding: 12px;
+      }
+      .comment p {
+        font-size: 0.9rem;
+      }
+      .form-group input[id^="comment-input-"] {
+        font-size: 0.95rem;
+      }
+      .stats-grid, .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .about-hero h2 {
+        font-size: 2.2rem;
+      }
+      .about-hero p {
+        font-size: 1.05rem;
+      }
+    }
+    @media (min-width: 900px) {
+      .idea-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+      }
+      .fund-item, .profile-item, .stats-item, .analytics-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .comment {
+        padding: 14px 16px;
+        
+      }
+      .form-group input[id^="comment-input-"] {
+        font-size: 1rem;
+      }
+      .stats-grid, .analytics-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <!-----
-    <h1>sign up to log in </h1>
-    <form action="https://aravindjogi.github.io/project1/">
-        <label>Name</label>
-        <br>
-        <input type="text" name="enter your name" required>
-        <br>
-        <label for="block">Email id</label>
-        <br>
-        <input type="email" name="enter your name" required>
-        <br>
-        <input type="checkbox" required>
-        <br>
-        <input type="submit" required>
-    
-    </form>
-    ----->
-
-    <nav>
-        <div class="navbar1">
-            <a href="https://www.youtube.com/watch?v=uGCmE_1SwyU&list=RDuGCmE_1SwyU&start_radio=1">
-                <button>
-                    Create account
-                </button>
-            </a>
-            <iframe width="500px" height="500px" src="/index.html" allowfullscreen></iframe>
-            <button>login</button>
-            <button>
-                Startup ideas
-            </button>
-            <button>
-                Funds
-            </button>
-            <button>Overall Details</button>
-            <button>
-                About Comapany
-            </button>
-            <button>
-                developer
-            </button>
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <i class="fas fa-bars hamburger" onclick="toggleMenu()"></i>
+      <div class="navbar-links" id="navbar-links">
+        <a href="#" onclick="showSection('create-account')"><i class="fas fa-user-plus"></i> Create Account</a>
+        <a href="#" onclick="showSection('login')"><i class="fas fa-sign-in-alt"></i> Login</a>
+        <a href="#" onclick="showSection('ideas')"><i class="fas fa-lightbulb"></i> Startup Ideas</a>
+        <a href="#" onclick="showSection('funds')"><i class="fas fa-donate"></i> Funds</a>
+        <a href="#" onclick="showSection('overall')"><i class="fas fa-chart-bar"></i> Overall Details</a>
+        <a href="#" onclick="showSection('about-company')"><i class="fas fa-info-circle"></i> About Company</a>
+        <a href="#" onclick="showSection('developer')"><i class="fas fa-code"></i> Developer</a>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+  <div class="container">
+    <div id="welcome" class="welcome" style="display: none;"></div>
+    <!-- Create Account Section -->
+    <div id="create-account" class="section">
+      <h2>Create Account</h2>
+      <form id="createAccountForm">
+        <div class="form-group">
+          <input type="text" name="username" id="create-username" placeholder=" " required>
+          <label for="create-username">Username</label>
         </div>
-    </nav>
+        <div class="form-group">
+          <input type="email" name="email" id="create-email" placeholder=" " required>
+          <label for="create-email">Email</label>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" id="create-password" placeholder=" " required>
+          <label for="create-password">Password</label>
+        </div>
+        <div class="form-group">
+          <select name="type" id="create-type" required>
+            <option value="User">User</option>
+            <option value="Admin">Admin</option>
+          </select>
+          <label for="create-type">Account Type</label>
+        </div>
+        <button type="submit"><i class="fas fa-user-plus"></i> Create Account</button>
+      </form>
+      <p id="createAccountError" class="error"></p>
+    </div>
+    <!-- Login Section -->
+    <div id="login" class="section">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <input type="text" name="username" id="login-username" placeholder=" " required>
+          <label for="login-username">Username</label>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" id="login-password" placeholder=" " required>
+          <label for="login-password">Password</label>
+        </div>
+        <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+      </form>
+      <p id="loginError" class="error"></p>
+    </div>
+    <!-- Profile Section -->
+    <div id="profile" class="section">
+      <h2 class="profile">User Profile</h2>
+      <div id="profileDetails"></div>
+    </div>
+    <!-- Ideas Section -->
+    <div id="ideas" class="section">
+      <h2 class="ideas">Startup Ideas</h2>
+      <div class="filter">
+        <div class="form-group">
+          <select id="categoryFilter" onchange="fetchIdeas()">
+            <option value="">All Categories</option>
+            <option value="Tech">Tech</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+            <option value="Environment">Environment</option>
+          </select>
+          <label for="categoryFilter">Filter by Category</label>
+        </div>
+      </div>
+      <div id="adminControls" style="display: none;">
+        <h3>Add New Idea</h3>
+        <form id="addIdeaForm">
+          <div class="form-group">
+            <input type="text" name="title" id="idea-title" placeholder=" " required>
+            <label for="idea-title">Idea Title</label>
+          </div>
+          <div class="form-group">
+            <textarea name="description" id="idea-description" placeholder=" " required></textarea>
+            <label for="idea-description">Idea Description</label>
+          </div>
+          <div class="form-group">
+            <select name="category" id="idea-category" required>
+              <option value="Tech">Tech</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Education">Education</option>
+              <option value="Environment">Environment</option>
+            </select>
+            <label for="idea-category">Category</label>
+          </div>
+          <div class="form-group">
+            <input type="number" name="fundingGoal" id="idea-fundingGoal" placeholder=" " step="0.01" min="0" value="0">
+            <label for="idea-fundingGoal">Funding Goal (INR)</label>
+          </div>
+          <button type="submit"><i class="fas fa-lightbulb"></i> Add Idea</button>
+        </form>
+      </div>
+      <div id="ideasList" class="idea-grid"></div>
+    </div>
+    <!-- Funds Section -->
+    <div id="funds" class="section">
+      <h2 class="funds">Funds</h2>
+      <div id="fundsList"></div>
+      <h3>Contribute Fund</h3>
+      <form id="fundForm">
+        <div class="form-group">
+          <select name="ideaTitle" id="ideaTitleSelect" required>
+            <option value="">Select Idea</option>
+          </select>
+          <label for="ideaTitleSelect">Idea</label>
+        </div>
+        <div class="form-group">
+          <input type="number" name="amount" id="fund-amount" placeholder=" " step="0.01" min="0.01" required>
+          <label for="fund-amount">Amount (INR)</label>
+        </div>
+        <button type="submit"><i class="fas fa-donate"></i> Proceed to Payment</button>
+      </form>
+    </div>
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+      <div class="modal-content">
+        <button class="close-modal" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i></button>
+        <div id="captchaStep" style="display: none;">
+          <h3>Verify CAPTCHA</h3>
+          <p id="captchaQuestion" style="margin-bottom: 15px;"></p>
 
+          <div class="form-group">
+            <input type="number" id="captchaAnswer" placeholder=" " required>
+            <label for="captchaAnswer">Enter Answer</label>
+          </div>
+          <button onclick="verifyCaptcha()"><i class="fas fa-check"></i> Verify</button>
+          <button class="cancel" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i> Cancel</button>
+        </div>
+        <div id="paymentStep" style="display: none;">
+          <h3>Complete Payment</h3>
+          <div class="bank-details">
+            <p><strong>Bank:</strong> State Bank of India</p>
+            <p><strong>Account Number:</strong> 123456789</p>
+            <p><strong>IFSC Code:</strong> SBIN0001234</p>
+          </div>
+          <div class="qr-code" id="qrCode"></div>
+          <button onclick="confirmPayment()"><i class="fas fa-check"></i> Confirm Contribution</button>
+          <button class="cancel" onclick="closeModal('paymentModal')"><i class="fas fa-times"></i> Cancel</button>
+        </div>
+      </div>
+    </div>
+    <!-- Overall Details Section -->
+    <div id="overall" class="section">
+      <h2>Overall Details</h2>
+      <div id="overallDetails"></div>
+    </div>
+    <!-- About Company Section -->
+    <div id="about-company" class="section">
+      <div class="about-hero">
+        <h2 class="about-company">About Job Portal</h2>
+        <p><i class="fas fa-lightbulb"></i> Welcome to the <strong>Job Portal</strong>, a dynamic platform designed to empower startups and innovators. Our mission is to connect creative minds with opportunities by enabling users to share, fund, and collaborate on groundbreaking startup ideas.</p>
+        <p><i class="fas fa-microchip"></i> Developed by siddhartha college of engineering as a college showcase project, this application runs on a locally hosted PC server, showcasing the power of IoT in building scalable web applications. The platform supports user and admin accounts, idea submissions, crowd-funding, voting, commenting, and advanced analytics for developers.</p>
+        <p><i class="fas fa-users"></i> Whether you're a regular user pitching an idea, an admin managing content, or a developer analyzing platform metrics, Job Portal fosters a community-driven ecosystem for innovation. Join us to turn your ideas into reality!</p>
+        <button class="cta" onclick="showSection('ideas')"><i class="fas fa-rocket"></i> Explore Ideas Now</button>
+      </div>
+    </div>
+    <!-- Developer Section -->
+    <div id="developer" class="section">
+      <h2>Developer</h2>
+      <p><i class="fas fa-code"></i> Developed by [Your Name] for college showcase project.</p>
+      <p><i class="fas fa-envelope"></i> Contact: [Your Email]</p>
+      <p><i class="fas fa-microchip"></i> Project: Job Portal for Startups, hosted on ESP32-WROOM.</p>
+    </div>
+    <!-- Developer Dashboard Section -->
+    <div id="developer-dashboard" class="section">
+      <h2 class="developer-dashboard">Developer Dashboard</h2>
+      <div id="dashboardStats"></div>
+      <h3>Users</h3>
+      <table id="usersTable">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3>Ideas</h3>
+      <table id="ideasTable">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Creator</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Funding Goal (₹)</th>
+            <th>Total Funds (₹)</th>
+            <th>Progress (%)</th>
+            <th>Net Votes</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3>Funds</h3>
+      <table id="fundsTable">
+        <thead>
+          <tr>
+            <th>Idea Title</th>
+            <th>Funder</th>
+            <th>Amount (₹)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <!-- Developer Stats Section -->
+    <div id="developer-stats" class="section">
+      <h2 class="developer-stats">Developer Stats</h2>
+      <div id="developerStats" class="stats-grid"></div>
+    </div>
+    <!-- Developer Analytics Section -->
+    <div id="developer-analytics" class="section">
+      <h2 class="developer-analytics">Developer Analytics</h2>
+      <button class="export" onclick="exportAnalytics()"><i class="fas fa-download"></i> Export Analytics</button>
+      <div id="analyticsStats" class="analytics-grid"></div>
+      <div class="chart-container">
+        <canvas id="analyticsChart"></canvas>
+      </div>
+      <h3>Activity Log</h3>
+      <div id="activityLog"></div>
+    </div>
+  </div>
 
-    <h1>course registration form</h1>
-    <form action="hi">
+  <script>
+    // In-memory data storage (for client-side rendering, synced with server)
+    let currentUser = null;
+    let currentSection = 'create-account';
+    let analyticsChart = null;
+    let toastQueue = [];
+    let isProcessingToast = false;
+    let captchaQuestion = null;
+    let captchaAnswer = null;
+    let paymentData = null;
 
+    // Use window.location.hostname to dynamically get the ESP32's IP
+    const BASE_URL = `http://${window.location.hostname}:3000`;
 
-        <fieldset>
-            <legend>Personal Details</legend>
-            <table>
+    //192.168.187.4
 
-                <tr id="frist">
-                    <td><label for="FN">Frist name</label></td>
-                    <td><input type="text" required placeholder="frist name"></td>
-                    <td>hi</td>
-                </tr>
-                <tr id="Second">
-                    <td><label for="SN">surname</label></td>
-                    <td><input type="text" name="" required placeholder="surname"></td>
+    // Generate timestamp
+    function getTimestamp() {
+      const now = new Date();
+      return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    }
 
-                </tr>
-                <tr id="Third">
-                    <td><label for="PH">mobile no</label></td>
-                    <td><input type="tel" name="" required placeholder="9999999999"></td>
-                </tr>
-                <tr id="Fourth">
-                    <td><label for="EM">email</label></td>
-                    <td><input type="email" name="" placeholder="A@gmail.com" required></td>
-                </tr>
-                <tr id="Sixth">
-                    <td><label for="PS">password</label></td>
-                    <td><input type="password" name="" required></td>
-                </tr>
-                <tr id="Seventh">
-                    <td><label for="CPS">confirm password</label></td>
-                    <td> <input type="password" name="" required></td>
-                </tr>
+    // Toggle hamburger menu
+    function toggleMenu() {
+      const navbarLinks = document.getElementById('navbar-links');
+      navbarLinks.classList.toggle('active');
+    }
 
-                <tr id="Eighth">
-                    <td><label for="DOB">DOB</label><br></td>
-                    <td><input type="date" name="" id="" required placeholder="11/11/1111"></td>
-                </tr>
-                <tr id="ninth">
-                    <td><label for="G">Gender</label></td>
-                    <td>
-                        <input type="radio" name="gender" value="Male"> Male
-                        <input type="radio" name="gender" value="Female"> Female
-                        <input type="radio" name="gender" value="Other"> Other
-                    </td>
-                </tr>
+    // Toggle dark mode
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      body.setAttribute('data-theme', currentTheme);
+      localStorage.setItem('theme', currentTheme);
+      document.querySelector('.theme-toggle i').className = currentTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
 
-                <tr id="tenth">
-                    <td><label for="SC">select country</label></td>
-                    <td>
-                        <select name="plz select " id="">
-                            <option value="I" required>India</option>
-                            <option value="U" required>USA</option>
-                        </select>
-                    </td>
-                </tr>
+    // Apply saved theme
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.body.setAttribute('data-theme', savedTheme);
+      document.querySelector('.theme-toggle i').className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+      updateNavbar();
+      showSection('create-account');
+      if (localStorage.getItem('currentUser')) {
+        currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        updateNavbar();
+        showSection('ideas');
+        fetchIdeas();
+      }
+      document.querySelectorAll('.navbar-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 600) {
+            document.getElementById('navbar-links').classList.remove('active');
+          }
+        });
+      });
+    });
 
-                <tr>
-                    <td><label for="UP">upload picture</label></td>
-                    <td>
-                        <input type="file" name="File" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td id="reset"><input type="reset" name="reset" required></td>
-                </tr>
-            </table>
-        </fieldset>
-        <br>
-        <fieldset>
-            <legend>Course Selection Area</legend>
-            <table>
-                <tr>
-                    <td><label for="">select course</label></td>
-                    <td>
-                        <select name="select source" id="">
-                            <option value="py" required>python</option>
-                            <option value="jv" required>java</option>
-                        </select>
-                    </td>
-                </tr>
+    // Ripple effect for buttons
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = e.clientX - rect.left - size / 2 + 'px';
+        ripple.style.top = e.clientY - rect.top - size / 2 + 'px';
+        button.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600);
+      });
+    });
 
-                <tr>
-                    <td><label for="DM">Delivery mode</label></td>
-                    <td>
-                        <input type="radio" name="DM" value="online">Online
-                        <input type="radio" name="DM" value="offline">offline
-                    </td>
-                </tr>
+    // Show toast notification
+    function showToast(message, type) {
+      toastQueue.push({ message, type });
+      processToastQueue();
+    }
 
-                <tr>
-                    <td><label for="C">comments</label></td>
-                    <td><textarea name="TA" id="" style="width: 300px;
-                    height:100px" required placeholder="comments"></textarea></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" required>
-                    </td>
-                </tr>
-        </fieldset>
-        </table>
-    </form>
+    function processToastQueue() {
+      if (isProcessingToast || toastQueue.length === 0) return;
+      isProcessingToast = true;
+      const { message, type } = toastQueue.shift();
+      const toasts = document.querySelectorAll('.toast');
+      const baseTop = 20;
+      const offset = Array.from(toasts).reduce((sum, toast) => {
+        const style = window.getComputedStyle(toast);
+        const marginBottom = parseInt(style.marginBottom) || 10;
+        return sum + toast.offsetHeight + marginBottom;
+      }, 0);
+      const toast = document.createElement('div');
+      toast.className = `toast ${type}`;
+      toast.style.top = `${baseTop + offset}px`;
+      toast.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : 'times-circle'}"></i>
+        ${message}
+        <button class="close-toast" onclick="closeToast(this.parentElement)"><i class="fas fa-times"></i></button>
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        closeToast(toast);
+      }, 3500);
+    }
 
-    <ul>
+    function closeToast(toast) {
+      toast.style.animation = 'bounceOut 0.4s ease';
+      setTimeout(() => {
+        toast.remove();
+        isProcessingToast = false;
+        updateToastPositions();
+        processToastQueue();
+      }, 400);
+    }
 
-        <li>
-            python
-        </li>
-        <li>
-            css
-        </li>
-        <li>
-            javascript
-        </li>
+    function updateToastPositions() {
+      const toasts = document.querySelectorAll('.toast');
+      let currentTop = 20;
+      toasts.forEach(toast => {
+        toast.style.top = `${currentTop}px`;
+        const style = window.getComputedStyle(toast);
+        const marginBottom = parseInt(style.marginBottom) || 10;
+        currentTop += toast.offsetHeight + marginBottom;
+      });
+    }
 
-    </ul>
-    <ol class="orderedlist" type="i">
-        <a href="h1" target="_top">
-            <li>
-                Aravind</li>
-            <li>lokesh</li>
-    </ol><!--ordered list is called as ol tag-->
-    <ol id="orderedlist" type="i">
+    // Modal handling
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+      }
+    }
 
-        <li class="aravind">
-            Aravind</li>
-        <li><img src="/startup-india-logo-gradient-circle.png" alt=""></li>
-    </ol>
-    </a>
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'none';
+        const captchaStep = document.getElementById('captchaStep');
+        const paymentStep = document.getElementById('paymentStep');
+        const qrCode = document.getElementById('qrCode');
+        if (captchaStep) captchaStep.style.display = 'none';
+        if (paymentStep) paymentStep.style.display = 'none';
+        if (qrCode) qrCode.innerHTML = '';
+        paymentData = null;
+        captchaQuestion = null;
+        captchaAnswer = null;
+      }
+    }
 
+    // Generate CAPTCHA
+    function generateCaptcha() {
+      const num1 = Math.floor(Math.random() * 10);
+      const num2 = Math.floor(Math.random() * 10);
+      captchaQuestion = `${num1} + ${num2} = ?`;
+      captchaAnswer = num1 + num2;
+      const captchaQuestionEl = document.getElementById('captchaQuestion');
+      if (captchaQuestionEl) {
+        captchaQuestionEl.textContent = captchaQuestion;
+      }
+    }
 
+    // Verify CAPTCHA
+    function verifyCaptcha() {
+      const answerInput = document.getElementById('captchaAnswer');
+      if (!answerInput) return;
+      const userAnswer = parseInt(answerInput.value);
+      if (userAnswer === captchaAnswer) {
+        showToast('CAPTCHA verified successfully', 'success');
+        document.getElementById('captchaStep').style.display = 'none';
+        document.getElementById('paymentStep').style.display = 'block';
+        generateQRCode();
+        logActivity(currentUser.username, 'initiated payment for ' + paymentData.ideaTitle);
+      } else {
+        showToast('Incorrect CAPTCHA answer', 'error');
+        answerInput.value = '';
+        generateCaptcha();
+      }
+    }
 
-    <table border="10px">
+    // Generate QR code
+    function generateQRCode() {
+      const qrCode = document.getElementById('qrCode');
+      if (!qrCode) return;
+      qrCode.innerHTML = '';
+      const bankDetails = `Bank: State Bank of India\nAccount Number: 123456789\nIFSC Code: SBIN0001234\nAmount: ₹${paymentData.amount}`;
+      QRCode.toCanvas(bankDetails, { width: 200, margin: 2 }, (err, canvas) => {
+        if (err) {
+          console.error('Error generating QR code:', err);
+          showToast('Failed to generate QR code', 'error');
+          return;
+        }
+        qrCode.appendChild(canvas);
+      });
+    }
+
+    // Confirm payment
+    async function confirmPayment() {
+      if (!paymentData) {
+        showToast('Payment data not found', 'error');
+        return;
+      }
+      try {
+        const response = await fetch(`${BASE_URL}/fund`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(paymentData)
+        });
+        const result = await response.json();
+        if (result.success) {
+          showToast('Fund contributed successfully', 'success');
+          closeModal('paymentModal');
+          document.getElementById('fundForm').reset();
+          fetchFunds();
+          logActivity(paymentData.funder, `contributed ₹${paymentData.amount} to ${paymentData.ideaTitle}`);
+        } else {
+          showToast(result.message, 'error');
+          closeModal('paymentModal');
+        }
+      } catch (error) {
+        showToast('Failed to process payment', 'error');
+        console.error('Payment error:', error);
+      }
+    }
+
+    // Update navbar
+    function updateNavbar() {
+      const navbarLinks = document.getElementById('navbar-links');
+      const welcome = document.getElementById('welcome');
+      if (!navbarLinks || !welcome) return;
+      if (currentUser) {
+        document.getElementById('navbar').classList.add('logged-in');
+        navbarLinks.innerHTML = `
+          <a href="#" onclick="showSection('profile')" class="${currentSection === 'profile' ? 'active' : ''}"><i class="fas fa-user"></i> Profile</a>
+          <a href="#" onclick="showSection('ideas')" class="${currentSection === 'ideas' ? 'active' : ''}"><i class="fas fa-lightbulb"></i> Startup Ideas</a>
+          <a href="#" onclick="showSection('funds')" class="${currentSection === 'funds' ? 'active' : ''}"><i class="fas fa-donate"></i> Funds</a>
+          <a href="#" onclick="showSection('overall')" class="${currentSection === 'overall' ? 'active' : ''}"><i class="fas fa-chart-bar"></i> Overall Details</a>
+          <a href="#" onclick="showSection('about-company')" class="${currentSection === 'about-company' ? 'active' : ''}"><i class="fas fa-info-circle"></i> About Company</a>
+          <a href="#" onclick="showSection('developer')" class="${currentSection === 'developer' ? 'active' : ''}"><i class="fas fa-code"></i> Developer</a>
+          ${currentUser.isDeveloper ? `
+            <a href="#" onclick="showSection('developer-dashboard')" class="${currentSection === 'developer-dashboard' ? 'active' : ''}"><i class="fas fa-tachometer-alt"></i> Developer Dashboard</a>
+            <a href="#" onclick="showSection('developer-stats')" class="${currentSection === 'developer-stats' ? 'active' : ''}"><i class="fas fa-chart-pie"></i> Developer Stats</a>
+            <a href="#" onclick="showSection('developer-analytics')" class="${currentSection === 'developer-analytics' ? 'active' : ''}"><i class="fas fa-chart-line"></i> Developer Analytics</a>
+          ` : ''}
+          <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        `;
+        welcome.style.display = 'block';
+        welcome.textContent = `Welcome, ${currentUser.username}!`;
+        const adminControls = document.getElementById('adminControls');
+        if (adminControls) {
+          adminControls.style.display = currentUser.type === 'Admin' || currentUser.isDeveloper ? 'block' : 'none';
+        }
+      } else {
+        document.getElementById('navbar').classList.remove('logged-in');
+        navbarLinks.innerHTML = `
+          <a href="#" onclick="showSection('create-account')" class="${currentSection === 'create-account' ? 'active' : ''}"><i class="fas fa-user-plus"></i> Create Account</a>
+          <a href="#" onclick="showSection('login')" class="${currentSection === 'login' ? 'active' : ''}"><i class="fas fa-sign-in-alt"></i> Login</a>
+          <a href="#" onclick="showSection('ideas')" class="${currentSection === 'ideas' ? 'active' : ''}"><i class="fas fa-lightbulb"></i> Startup Ideas</a>
+          <a href="#" onclick="showSection('funds')" class="${currentSection === 'funds' ? 'active' : ''}"><i class="fas fa-donate"></i> Funds</a>
+          <a href="#" onclick="showSection('overall')" class="${currentSection === 'overall' ? 'active' : ''}"><i class="fas fa-chart-bar"></i> Overall Details</a>
+          <a href="#" onclick="showSection('about-company')" class="${currentSection === 'about-company' ? 'active' : ''}"><i class="fas fa-info-circle"></i> About Company</a>
+          <a href="#" onclick="showSection('developer')" class="${currentSection === 'developer' ? 'active' : ''}"><i class="fas fa-code"></i> Developer</a>
+        `;
+        welcome.style.display = 'none';
+      }
+    }
+
+    // Show section
+    function showSection(sectionId) {
+      currentSection = sectionId;
+      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.classList.add('active');
+      }
+      updateNavbar();
+      if (sectionId === 'ideas') fetchIdeas();
+      if (sectionId === 'funds') fetchFunds();
+      if (sectionId === 'overall') fetchOverall();
+      if (sectionId === 'profile') fetchProfile();
+      if (sectionId === 'developer-dashboard') fetchDashboard();
+      if (sectionId === 'developer-stats') fetchDeveloperStats();
+      if (sectionId === 'developer-analytics') fetchDeveloperAnalytics();
+      if (sectionId === 'about-company') {
+        logActivity(currentUser ? currentUser.username : 'Anonymous', 'viewed About Company');
+      }
+    }
+
+    // Logout
+    function logout() {
+      currentUser = null;
+      localStorage.removeItem('currentUser');
+      updateNavbar();
+      showSection('login');
+    }
+
+    async function fetchData(endpoint) {
+  try {
+    const response = await fetch(`${BASE_URL}/${endpoint}`);
+    if (!response.ok) throw new Error('Network error');
+    return await response.json();
+  } catch (error) {
+    showToast(`Failed to fetch ${endpoint}`, 'error');
+    console.error(`Fetch ${endpoint} error:`, error);
+    return [];
+  }
+}
+
+    // Save data to server
+    async function saveData(endpoint, data) {
+      try {
+        const response = await fetch(`${BASE_URL}/${endpoint}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        if (!result.success) {
+          showToast(result.message, 'error');
+        }
+        return result;
+      } catch (error) {
+        showToast(`Failed to save ${endpoint}`, 'error');
+        console.error(`Save ${endpoint} error:`, error);
+        return { success: false, message: 'Network error' };
+      }
+    }
+
+    // Create Account
+    document.getElementById('createAccountForm')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const username = formData.get('username').trim();
+      const email = formData.get('email').trim();
+      const password = formData.get('password').trim();
+      const type = formData.get('type');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const errorEl = document.getElementById('createAccountError');
+      if (!username) {
+        errorEl.textContent = 'Username cannot be empty';
+        showToast('Username cannot be empty', 'error');
+        return;
+      }
+      if (!email) {
+        errorEl.textContent = 'Email cannot be empty';
+        showToast('Email cannot be empty', 'error');
+        return;
+      }
+      if (!emailRegex.test(email)) {
+        errorEl.textContent = 'Invalid email format';
+        showToast('Invalid email format', 'error');
+        return;
+      }
+      if (!password) {
+        errorEl.textContent = 'Password cannot be empty';
+        showToast('Password cannot be empty', 'error');
+        return;
+      }
+      const users = await fetchData('users');
+      if (users.length >= 100) {
+        errorEl.textContent = 'User limit reached';
+        showToast('User limit reached', 'error');
+        return;
+      }
+      if (users.some(user => user.username === username)) {
+        errorEl.textContent = 'Username already exists';
+        showToast('Username already exists', 'error');
+        return;
+      }
+      const newUser = { username, password, type, email };
+      const result = await saveData('users', newUser);
+      if (result.success) {
+        errorEl.textContent = 'Account created successfully';
+        showToast('Account created successfully', 'success');
+        this.reset();
+        showSection('login');
+        logActivity(username, 'created account');
+      } else {
+        errorEl.textContent = result.message;
+        showToast(result.message, 'error');
+      }
+    });
+
+    // Login
+    document.getElementById('loginForm')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const username = formData.get('username').trim();
+      const password = formData.get('password').trim();
+      const errorEl = document.getElementById('loginError');
+      const users = await fetchData('users');
+      const user = users.find(u => u.username === username && u.password === password);
+      if (user) {
+        currentUser = {
+          username: user.username,
+          type: user.type,
+          isDeveloper: username === 'Tinju' && password === 'Tinju@2001'
+        };
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+        errorEl.textContent = 'Login successful';
+        showToast('Login successful', 'success');
+        updateNavbar();
+        showSection('ideas');
+        fetchIdeas();
+        logActivity(username, 'logged in');
+      } else {
+        errorEl.textContent = 'Invalid username or password';
+        showToast('Invalid username or password', 'error');
+      }
+    });
+
+    // Add Idea
+    document.getElementById('addIdeaForm')?.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!currentUser) {
+        showToast('Please login to add an idea', 'error');
+        showSection('login');
+        return;
+      }
+      const formData = new FormData(this);
+      const title = formData.get('title').trim();
+      const description = formData.get('description').trim();
+      const category = formData.get('category');
+      const fundingGoal = parseFloat(formData.get('fundingGoal'));
+      if (!title) {
+        showToast('Idea title cannot be empty', 'error');
+        return;
+      }
+      if (!description) {
+        showToast('Idea description cannot be empty', 'error');
+        return;
+      }
+      if (fundingGoal < 0) {
+        showToast('Funding goal cannot be negative', 'error');
+        return;
+      }
+      const ideas = await fetchData('ideas');
+      if (ideas.length >= 1000) {
+        showToast('Idea limit reached', 'error');
+        return;
+      }
+      if (ideas.some(idea => idea.title === title)) {
+        showToast('Idea title already exists', 'error');
+        return;
+      }
+      if (!(currentUser.type === 'Admin' || currentUser.isDeveloper)) {
+        showToast('Only admins or developer can add ideas', 'error');
+        return;
+      }
+      const newIdea = {
+        title,
+        description,
+        creator: currentUser.username,
+        category,
+        fundingGoal,
+        status: 'Proposed' // Default status
+      };
+      const result = await saveData('ideas', newIdea);
+      if (result.success) {
+        showToast('Idea added successfully', 'success');
+        this.reset();
+        fetchIdeas();
+        logActivity(currentUser.username, `added idea: ${title}`);
+      } else {
+        showToast(result.message, 'error');
+      }
+    });
+
+    // Vote on idea
+    async function voteIdea(ideaTitle, voteType) {
+      if (!currentUser) {
+        showToast('Please login to vote', 'error');
+        showSection('login');
+        return;
+      }
+      const ideas = await fetchData('ideas');
+      const idea = ideas.find(i => i.title === ideaTitle);
+      if (!idea) {
+        showToast('Idea not found', 'error');
+        return;
+      }
+      if (currentUser.username === idea.creator) {
+        showToast('You cannot vote on your own idea', 'error');
+        return;
+      }
+      if (voteType !== 'upvote' && voteType !== 'downvote') {
+        showToast('Invalid vote type', 'error');
+        return;
+      }
+      const votes = await fetchData('votes');
+      if (votes.length >= 5000) {
+        showToast('Vote limit reached', 'error');
+        return;
+      }
+      if (votes.some(v => v.username === currentUser.username && v.ideaTitle === ideaTitle)) {
+        showToast('You have already voted', 'error');
+        return;
+      }
+      const newVote = {
+        username: currentUser.username,
+        ideaTitle,
+        voteType
+      };
+      const result = await saveData('votes', newVote);
+      if (result.success) {
+        showToast(voteType === 'upvote' ? 'Upvoted successfully' : 'Downvoted successfully', 'success');
+        fetchIdeas();
+        logActivity(currentUser.username, `${voteType}d idea: ${ideaTitle}`);
+      } else {
+        showToast(result.message, 'error');
+      }
+    }
+
+    // Post comment
+    async function postComment(ideaTitle) {
+      if (!currentUser) {
+        showToast('Please login to comment', 'error');
+        showSection('login');
+        return;
+      }
+      const ideas = await fetchData('ideas');
+      const idea = ideas.find(i => i.title === ideaTitle);
+      if (!idea) {
+        showToast('Idea not found', 'error');
+        return;
+      }
+      if (currentUser.username === idea.creator) {
+        showToast('You cannot comment on your own idea', 'error');
+        return;
+      }
+      const commentInput = document.getElementById(`comment-input-${ideaTitle}`);
+      const commentText = commentInput.value.trim();
+      if (!commentText) {
+        showToast('Comment cannot be empty', 'error');
+        return;
+      }
+      if (commentText.length > 100) {
+        showToast('Comment must be 100 characters or less', 'error');
+        return;
+      }
+      const comments = await fetchData('comments');
+      if (comments.length >= 5000) {
+        showToast('Comment limit reached', 'error');
+        return;
+      }
+      const newComment = {
+        username: currentUser.username,
+        ideaTitle,
+        text: commentText,
+        timestamp: getTimestamp()
+      };
+      const result = await saveData('comments', newComment);
+      if (result.success) {
+        showToast('Comment posted successfully', 'success');
+        commentInput.value = '';
+        fetchIdeas();
+        logActivity(currentUser.username, `commented on ${ideaTitle}`);
+      } else {
+        showToast(result.message, 'error');
+      }
+    }
+
+    // Delete comment
+    async function deleteComment(ideaTitle, commentIndex) {
+      if (!confirm('Are you sure you want to delete this comment?')) return;
+      const comments = await fetchData('comments');
+      const comment = comments[commentIndex];
+      if (!comment || comment.ideaTitle !== ideaTitle) {
+        showToast('Comment not found', 'error');
+        return;
+      }
+      const result = await fetch(`${BASE_URL}/comments/delete`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ index: commentIndex })
+      }).then(res => res.json());
+      if (result.success) {
+        showToast('Comment deleted successfully', 'success');
+        fetchIdeas();
+        logActivity(currentUser.username, `deleted comment on ${ideaTitle}`);
+      } else {
+        showToast(result.message, 'error');
+      }
+    }
+
+    // Edit idea
+    async function editIdea(title) {
+      if (!currentUser) {
+        showToast('Please login to edit ideas', 'error');
+        showSection('login');
+        return;
+      }
+      const ideas = await fetchData('ideas');
+      const idea = ideas.find(i => i.title === title);
+      if (!idea) {
+        showToast('Idea not found', 'error');
+        return;
+      }
+      if (currentUser.username !== idea.creator && !currentUser.isDeveloper) {
+        showToast('Only the idea creator or developer can edit this idea', 'error');
+        return;
+      }
+      const form = document.createElement('form');
+      form.innerHTML = `
+        <div class="form-group">
+          <input type="text" name="title" value="${idea.title}" placeholder=" " required>
+          <label>Title</label>
+        </div>
+        <div class="form-group">
+          <textarea name="description" placeholder=" " required>${idea.description}</textarea>
+          <label>Description</label>
+        </div>
+        <div class="form-group">
+          <select name="category" required>
+            <option value="Tech" ${idea.category === 'Tech' ? 'selected' : ''}>Tech</option>
+            <option value="Healthcare" ${idea.category === 'Healthcare' ? 'selected' : ''}>Healthcare</option>
+            <option value="Education" ${idea.category === 'Education' ? 'selected' : ''}>Education</option>
+            <option value="Environment" ${idea.category === 'Environment' ? 'selected' : ''}>Environment</option>
+          </select>
+          <label>Category</label>
+        </div>
+        <div class="form-group">
+          <input type="number" name="fundingGoal" value="${idea.fundingGoal}" placeholder=" " step="0.01" min="0" required>
+          <label>Funding Goal (INR)</label>
+        </div>
+        <div class="form-group">
+          <select name="status" required>
+            <option value="Proposed" ${idea.status === 'Proposed' ? 'selected' : ''}>Proposed</option>
+            <option value="In Progress" ${idea.status === 'In Progress' ? 'selected' : ''}>In Progress</option>
+            <option value="Funding" ${idea.status === 'Funding' ? 'selected' : ''}>Funding</option>
+            <option value="Completed" ${idea.status === 'Completed' ? 'selected' : ''}>Completed</option>
+            <option value="Cancelled" ${idea.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+          </select>
+          <label>Status</label>
+        </div>
+        <button type="submit"><i class="fas fa-save"></i> Save</button>
+        <button type="button" class="cancel" onclick="this.closest('.modal').style.display='none'"><i class="fas fa-times"></i> Cancel</button>
+      `;
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <button class="close-modal" onclick="this.closest('.modal').style.display='none'"><i class="fas fa-times"></i></button>
+          <h3>Edit Idea</h3>
+        </div>
+      `;
+      modal.querySelector('.modal-content').appendChild(form);
+      document.body.appendChild(modal);
+      modal.style.display = 'flex';
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const newTitle = formData.get('title').trim();
+        const description = formData.get('description').trim();
+        const category = formData.get('category');
+        const fundingGoal = parseFloat(formData.get('fundingGoal'));
+        const status = formData.get('status');
+        if (!newTitle || !description) {
+          showToast('Title and description cannot be empty', 'error');
+          return;
+        }
+        if (fundingGoal < 0) {
+          showToast('Funding goal cannot be negative', 'error');
+          return;
+        }
+        const ideas = await fetchData('ideas');
+        if (newTitle !== title && ideas.some(i => i.title === newTitle)) {
+          showToast('Idea title already exists', 'error');
+          return;
+        }
+        const result = await fetch(`${BASE_URL}/ideas/edit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ oldTitle: title, newTitle, description, creator: idea.creator, category, fundingGoal, status })
+        }).then(res => res.json());
+        if (result.success) {
+          showToast('Idea updated successfully', 'success');
+          modal.style.display = 'none';
+          fetchIdeas();
+          logActivity(currentUser.username, `edited idea: ${newTitle}`);
+        } else {
+          showToast(result.message, 'error');
+        }
+      });
+    }
+
+    // Post chat message
+    async function postChatMessage(ideaTitle) {
+      if (!currentUser) {
+        showToast('Please login to chat', 'error');
+        showSection('login');
+        return;
+      }
+      const chatInput = document.getElementById(`chat-input-${ideaTitle}`);
+      const messageText = chatInput.value.trim();
+      if (!messageText) {
+        showToast('Message cannot be empty', 'error');
+        return;
+      }
+      if (messageText.length > 100) {
+        showToast('Message must be 100 characters or less', 'error');
+        return;
+      }
+      const chatMessages = await fetchData('chat_messages');
+      if (chatMessages.length >= 5000) {
+        showToast('Chat message limit reached', 'error');
+        return;
+      }
+      const newMessage = {
+        username: currentUser.username,
+        ideaTitle,
+        text: messageText,
+        timestamp: getTimestamp()
+      };
+      const result = await saveData('chat_messages', newMessage);
+      if (result.success) {
+        showToast('Message sent successfully', 'success');
+        chatInput.value = '';
+        fetchIdeas();
+        logActivity(currentUser.username, `sent chat message on ${ideaTitle}`);
+      } else {
+        showToast(result.message, 'error');
+      }
+    }
+
+   // Continuation of the fetchIdeas function
+async function fetchIdeas() {
+  const ideasList = document.getElementById('ideasList');
+  const categoryFilter = document.getElementById('categoryFilter')?.value;
+  if (!ideasList) return;
+  const [ideas, funds, votes, comments, chatMessages] = await Promise.all([
+    fetchData('ideas'),
+    fetchData('funds'),
+    fetchData('votes'),
+    fetchData('comments'),
+    fetchData('chat_messages')
+  ]);
+
+  ideasList.innerHTML = '';
+  const filteredIdeas = categoryFilter ? ideas.filter(idea => idea.category === categoryFilter) : ideas;
+
+  filteredIdeas.forEach(idea => {
+    const totalFunds = funds.filter(f => f.ideaTitle === idea.title).reduce((sum, f) => sum + f.amount, 0);
+    const progress = idea.fundingGoal > 0 ? (totalFunds / idea.fundingGoal) * 100 : 0;
+    const upvotes = votes.filter(v => v.ideaTitle === idea.title && v.voteType === 'upvote').length;
+    const downvotes = votes.filter(v => v.ideaTitle === idea.title && v.voteType === 'downvote').length;
+    const netVotes = upvotes - downvotes;
+    const ideaComments = comments.filter(c => c.ideaTitle === idea.title);
+    const ideaChatMessages = chatMessages.filter(m => m.ideaTitle === idea.title);
+
+    const ideaElement = document.createElement('div');
+    ideaElement.className = 'idea';
+    ideaElement.innerHTML = `
+      <h3>${idea.title}</h3>
+      <p><strong>Creator:</strong> ${idea.creator}</p>
+      <p><strong>Category:</strong> ${idea.category}</p>
+      <p><strong>Description:</strong> ${idea.description}</p>
+      <p><strong>Funding Goal:</strong> ₹${idea.fundingGoal.toFixed(2)}</p>
+      <p><strong>Total Funds:</strong> ₹${totalFunds.toFixed(2)}</p>
+      <p><strong>Status:</strong> ${idea.status}</p>
+      <div class="progress-bar-container">
+        <div class="progress-bar" style="width: ${Math.min(progress, 100)}%"></div>
+      </div>
+      <p><strong>Progress:</strong> ${progress.toFixed(2)}%</p>
+      <p><strong>Net Votes:</strong> ${netVotes} (+${upvotes}/-${downvotes})</p>
+      <button class="upvote" onclick="voteIdea('${idea.title}', 'upvote')"><i class="fas fa-thumbs-up"></i> Upvote</button>
+      <button class="downvote" onclick="voteIdea('${idea.title}', 'downvote')"><i class="fas fa-thumbs-down"></i> Downvote</button>
+      ${currentUser && (currentUser.username === idea.creator || currentUser.isDeveloper) ? `
+        <button class="edit" onclick="editIdea('${idea.title}')"><i class="fas fa-edit"></i> Edit</button>
+        <button class="delete" onclick="deleteIdea('${idea.title}')"><i class="fas fa-trash"></i> Delete</button>
+      ` : ''}
+      <button onclick="toggleDetails('details-${idea.title}')"><i class="fas fa-info-circle"></i> Toggle Details</button>
+      <div class="idea-details" id="details-${idea.title}">
+        <h4>Comments</h4>
+        ${ideaComments.length ? ideaComments.map((comment, index) => `
+          <div class="comment">
+            <p><strong>${comment.username}</strong> (${comment.timestamp}): ${comment.text}</p>
+            ${(currentUser && (currentUser.username === comment.username || currentUser.isDeveloper)) ? `
+              <button class="delete-comment" onclick="deleteComment('${idea.title}', ${index})"><i class="fas fa-trash"></i></button>
+            ` : ''}
+          </div>
+        `).join('') : '<p>No comments yet.</p>'}
+        ${currentUser ? `
+          <div class="form-group">
+            <input type="text" id="comment-input-${idea.title}" placeholder=" ">
+            <label for="comment-input-${idea.title}">Add Comment</label>
+          </div>
+          <button class="comment" onclick="postComment('${idea.title}')"><i class="fas fa-comment"></i> Post Comment</button>
+        ` : ''}
+        <h4>Chat</h4>
+        ${ideaChatMessages.length ? ideaChatMessages.map(message => `
+          <div class="comment">
+            <p><strong>${message.username}</strong> (${message.timestamp}): ${message.text}</p>
+          </div>
+        `).join('') : '<p>No chat messages yet.</p>'}
+        ${currentUser ? `
+          <div class="form-group">
+            <input type="text" id="chat-input-${idea.title}" placeholder=" ">
+            <label for="chat-input-${idea.title}">Send Message</label>
+          </div>
+          <button class="comment" onclick="postChatMessage('${idea.title}')"><i class="fas fa-comment-alt"></i> Send Message</button>
+        ` : ''}
+      </div>
+    `;
+    ideasList.appendChild(ideaElement);
+  });
+
+  const ideaTitleSelect = document.getElementById('ideaTitleSelect');
+  if (ideaTitleSelect) {
+    ideaTitleSelect.innerHTML = '<option value="">Select Idea</option>' + 
+      ideas.map(idea => `<option value="${idea.title}">${idea.title}</option>`).join('');
+  }
+}
+
+// Delete idea
+async function deleteIdea(title) {
+  if (!confirm('Are you sure you want to delete this idea?')) return;
+  if (!currentUser) {
+    showToast('Please login to delete ideas', 'error');
+    showSection('login');
+    return;
+  }
+  const ideas = await fetchData('ideas');
+  const idea = ideas.find(i => i.title === title);
+  if (!idea) {
+    showToast('Idea not found', 'error');
+    return;
+  }
+  if (currentUser.username !== idea.creator && !currentUser.isDeveloper) {
+    showToast('Only the idea creator or developer can delete this idea', 'error');
+    return;
+  }
+  const result = await fetch(`${BASE_URL}/ideas/delete`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title })
+  }).then(res => res.json());
+  if (result.success) {
+    showToast('Idea deleted successfully', 'success');
+    fetchIdeas();
+    logActivity(currentUser.username, `deleted idea: ${title}`);
+  } else {
+    showToast(result.message, 'error');
+  }
+}
+
+// Toggle idea details
+function toggleDetails(id) {
+  const details = document.getElementById(id);
+  if (details) {
+    details.style.display = details.style.display === 'block' ? 'none' : 'block';
+  }
+}
+
+// Fetch funds
+async function fetchFunds() {
+  const fundsList = document.getElementById('fundsList');
+  if (!fundsList) return;
+  const funds = await fetchData('funds');
+  fundsList.innerHTML = funds.length ? funds.map(fund => `
+    <div class="fund-item">
+      <p><strong>Idea:</strong> ${fund.ideaTitle}</p>
+      <p><strong>Funder:</strong> ${fund.funder}</p>
+      <p><strong>Amount:</strong> ₹${fund.amount.toFixed(2)}</p>
+      <p><strong>Timestamp:</strong> ${fund.timestamp}</p>
+    </div>
+  `).join('') : '<p>No funds contributed yet.</p>';
+}
+
+// Fund form submission
+document.getElementById('fundForm')?.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  if (!currentUser) {
+    showToast('Please login to contribute funds', 'error');
+    showSection('login');
+    return;
+  }
+  const formData = new FormData(this);
+  const ideaTitle = formData.get('ideaTitle');
+  const amount = parseFloat(formData.get('amount'));
+  if (!ideaTitle) {
+    showToast('Please select an idea', 'error');
+    return;
+  }
+  if (isNaN(amount) || amount <= 0) {
+    showToast('Amount must be greater than 0', 'error');
+    return;
+  }
+  const ideas = await fetchData('ideas');
+  const idea = ideas.find(i => i.title === ideaTitle);
+  if (!idea) {
+    showToast('Idea not found', 'error');
+    return;
+  }
+  if (currentUser.username === idea.creator) {
+    showToast('You cannot fund your own idea', 'error');
+    return;
+  }
+  if (idea.status !== 'Funding') {
+    showToast('This idea is not open for funding', 'error');
+    return;
+  }
+  paymentData = {
+    ideaTitle,
+    funder: currentUser.username,
+    amount,
+    timestamp: getTimestamp()
+  };
+  openModal('paymentModal');
+  document.getElementById('captchaStep').style.display = 'block';
+  document.getElementById('paymentStep').style.display = 'none';
+  generateCaptcha();
+});
+
+// Fetch profile
+async function fetchProfile() {
+  const profileDetails = document.getElementById('profileDetails');
+  if (!profileDetails || !currentUser) return;
+  const [user, ideas, funds] = await Promise.all([
+    fetchData('users').then(users => users.find(u => u.username === currentUser.username)),
+    fetchData('ideas'),
+    fetchData('funds')
+  ]);
+  if (!user) {
+    profileDetails.innerHTML = '<p>User not found.</p>';
+    return;
+  }
+  const userIdeas = ideas.filter(idea => idea.creator === currentUser.username);
+  const userFunds = funds.filter(fund => fund.funder === currentUser.username);
+  profileDetails.innerHTML = `
+    <div class="profile-item">
+      <p><strong>Username:</strong> ${user.username}</p>
+      <p><strong>Email:</strong> ${user.email}</p>
+      <p><strong>Account Type:</strong> ${user.type}</p>
+      <p><strong>Ideas Posted:</strong> ${userIdeas.length}</p>
+      <p><strong>Total Funds Contributed:</strong> ₹${userFunds.reduce((sum, f) => sum + f.amount, 0).toFixed(2)}</p>
+    </div>
+    <h3>Your Ideas</h3>
+    ${userIdeas.length ? userIdeas.map(idea => `
+      <div class="idea">
+        <p><strong>Title:</strong> ${idea.title}</p>
+        <p><strong>Category:</strong> ${idea.category}</p>
+        <p><strong>Description:</strong> ${idea.description}</p>
+        <p><strong>Funding Goal:</strong> ₹${idea.fundingGoal.toFixed(2)}</p>
+        <p><strong>Status:</strong> ${idea.status}</p>
+      </div>
+    `).join('') : '<p>No ideas posted yet.</p>'}
+    <h3>Your Contributions</h3>
+    ${userFunds.length ? userFunds.map(fund => `
+      <div class="fund-item">
+        <p><strong>Idea:</strong> ${fund.ideaTitle}</p>
+        <p><strong>Amount:</strong> ₹${fund.amount.toFixed(2)}</p>
+        <p><strong>Timestamp:</strong> ${fund.timestamp}</p>
+      </div>
+    `).join('') : '<p>No contributions made yet.</p>'}
+  `;
+}
+
+// Fetch overall details
+async function fetchOverall() {
+  const overallDetails = document.getElementById('overallDetails');
+  if (!overallDetails) return;
+  const [users, ideas, funds, votes, comments] = await Promise.all([
+    fetchData('users'),
+    fetchData('ideas'),
+    fetchData('funds'),
+    fetchData('votes'),
+    fetchData('comments')
+  ]);
+  const totalFunds = funds.reduce((sum, f) => sum + f.amount, 0);
+  const activeIdeas = ideas.filter(idea => idea.status === 'Funding').length;
+  const totalUpvotes = votes.filter(v => v.voteType === 'upvote').length;
+  const totalDownvotes = votes.filter(v => v.voteType === 'downvote').length;
+  overallDetails.innerHTML = `
+    <div class="stats-grid">
+      <div class="stats-item">
+        <p><strong>Total Users:</strong> ${users.length}</p>
+      </div>
+      <div class="stats-item">
+        <p><strong>Total Ideas:</strong> ${ideas.length}</p>
+      </div>
+      <div class="stats-item">
+        <p><strong>Active Ideas:</strong> ${activeIdeas}</p>
+      </div>
+      <div class="stats-item">
+        <p><strong>Total Funds:</strong> ₹${totalFunds.toFixed(2)}</p>
+      </div>
+      <div class="stats-item">
+        <p><strong>Total Votes:</strong> ${votes.length} (+${totalUpvotes}/-${totalDownvotes})</p>
+      </div>
+      <div class="stats-item">
+        <p><strong>Total Comments:</strong> ${comments.length}</p>
+      </div>
+    </div>
+  `;
+}
+
+// Fetch developer dashboard
+async function fetchDashboard() {
+  if (!currentUser || !currentUser.isDeveloper) {
+    showToast('Access restricted to developer', 'error');
+    showSection('ideas');
+    return;
+  }
+  const [users, ideas, funds, votes, comments] = await Promise.all([
+    fetchData('users'),
+    fetchData('ideas'),
+    fetchData('funds'),
+    fetchData('votes'),
+    fetchData('comments')
+  ]);
+  const dashboardStats = document.getElementById('dashboardStats');
+  const usersTableBody = document.querySelector('#usersTable tbody');
+  const ideasTableBody = document.querySelector('#ideasTable tbody');
+  const fundsTableBody = document.querySelector('#fundsTable tbody');
+
+  // Populate stats grid
+  if (dashboardStats) {
+    dashboardStats.innerHTML = `
+      <div class="stats-grid">
+        <div class="stats-item">
+          <p><strong>Total Users:</strong> ${users.length}</p>
+        </div>
+        <div class="stats-item">
+          <p><strong>Total Ideas:</strong> ${ideas.length}</p>
+        </div>
+        <div class="stats-item">
+          <p><strong>Total Funds:</strong> ₹${funds.reduce((sum, f) => sum + f.amount, 0).toFixed(2)}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  // Populate users table
+  if (usersTableBody) {
+    usersTableBody.innerHTML = users.map(user => `
+      <tr>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
+        <td>${user.type}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Populate ideas table
+  if (ideasTableBody) {
+    ideasTableBody.innerHTML = ideas.map(idea => {
+      const totalFunds = funds.filter(f => f.ideaTitle === idea.title).reduce((sum, f) => sum + f.amount, 0);
+      const progress = idea.fundingGoal > 0 ? (totalFunds / idea.fundingGoal) * 100 : 0;
+      const ideaVotes = votes.filter(v => v.ideaTitle === idea.title);
+      const upvotes = ideaVotes.filter(v => v.voteType === 'upvote').length;
+      const downvotes = ideaVotes.filter(v => v.voteType === 'downvote').length;
+      const netVotes = upvotes - downvotes;
+      const ideaComments = comments.filter(c => c.ideaTitle === idea.title).length;
+      return `
         <tr>
-            <th>
-                name
-            </th>
-            <th>Age</th>
+          <td>${idea.title}</td>
+          <td>${idea.creator}</td>
+          <td>${idea.category}</td>
+          <td>${idea.description}</td>
+          <td>₹${idea.fundingGoal.toFixed(2)}</td>
+          <td>₹${totalFunds.toFixed(2)}</td>
+          <td>${progress.toFixed(2)}%</td>
+          <td>${netVotes}</td>
+          <td>${ideaComments}</td>
         </tr>
-        <tr>
-            <td>Aravind</td>
-            <td>23</td>
-        </tr>
-        <tr>
-            <td>Lokesh</td>
-            <td>16</td>
-        </tr>
-    </table>
-    <ol class="nth">
-        <li>
-            aravindjogi
-        </li>
-        <li>age is 23
+      `;
+    }).join('');
+  }
 
-        </li>
-        <li>gender is male</li>
-        <li>core knlowdge </li>
-    </ol>
-    <table id="images">
-        <tr>
-            <td id="imgfam">
-                <img src="/fam.jpg" alt="no iamge">
-            </td>
-        </tr>
-    </table>
+  // Populate funds table
+  if (fundsTableBody) {
+    fundsTableBody.innerHTML = funds.map(fund => `
+      <tr>
+        <td>${fund.ideaTitle}</td>
+        <td>${fund.funder}</td>
+        <td>₹${fund.amount.toFixed(2)}</td>
+      </tr>
+    `).join('');
+  }
+}
+
+// Fetch developer stats
+async function fetchDeveloperStats() {
+  if (!currentUser || !currentUser.isDeveloper) {
+    showToast('Access restricted to developer', 'error');
+    showSection('ideas');
+    return;
+  }
+  const [users, ideas, funds, votes, comments] = await Promise.all([
+    fetchData('users'),
+    fetchData('ideas'),
+    fetchData('funds'),
+    fetchData('votes'),
+    fetchData('comments')
+  ]);
+  const developerStats = document.getElementById('developerStats');
+  if (!developerStats) return;
+  const categories = ['Tech', 'Healthcare', 'Education', 'Environment'];
+  const ideasByCategory = categories.map(category => ({
+    category,
+    count: ideas.filter(idea => idea.category === category).length
+  }));
+  const totalFunds = funds.reduce((sum, f) => sum + f.amount, 0);
+  const activeUsers = [...new Set(funds.map(f => f.funder).concat(ideas.map(i => i.creator)))].length;
+  developerStats.innerHTML = `
+    <div class="stats-item">
+      <p><strong>Total Active Users:</strong> ${activeUsers}</p>
+    </div>
+    <div class="stats-item">
+      <p><strong>Total Funds:</strong> ₹${totalFunds.toFixed(2)}</p>
+    </div>
+    ${categories.map(category => `
+      <div class="stats-item">
+        <p><strong>${category} Ideas:</strong> ${ideasByCategory.find(c => c.category === category).count}</p>
+      </div>
+    `).join('')}
+  `;
+}
+
+// Fetch developer analytics
+async function fetchDeveloperAnalytics() {
+  if (!currentUser || !currentUser.isDeveloper) {
+    showToast('Access restricted to developer', 'error');
+    showSection('ideas');
+    return;
+  }
+  const [ideas, funds, votes, comments, activityLog] = await Promise.all([
+    fetchData('ideas'),
+    fetchData('funds'),
+    fetchData('votes'),
+    fetchData('comments'),
+    fetchData('activity_log')
+  ]);
+  const analyticsStats = document.getElementById('analyticsStats');
+  const activityLogEl = document.getElementById('activityLog');
+  if (analyticsStats) {
+    const categories = ['Tech', 'Healthcare', 'Education', 'Environment'];
+    const ideasByCategory = categories.map(category => ({
+      category,
+      count: ideas.filter(idea => idea.category === category).length
+    }));
+    const totalFunds = funds.reduce((sum, f) => sum + f.amount, 0);
+    analyticsStats.innerHTML = `
+      <div class="analytics-item">
+        <p><strong>Total Ideas:</strong> ${ideas.length}</p>
+      </div>
+      <div class="analytics-item">
+        <p><strong>Total Funds:</strong> ₹${totalFunds.toFixed(2)}</p>
+      </div>
+      <div class="analytics-item">
+        <p><strong>Total Votes:</strong> ${votes.length}</p>
+      </div>
+      <div class="analytics-item">
+        <p><strong>Total Comments:</strong> ${comments.length}</p>
+      </div>
+    `;
+  }
+  if (activityLogEl) {
+    activityLogEl.innerHTML = activityLog.length ? activityLog.map(log => `
+      <div class="comment">
+        <p><strong>${log.username}</strong> (${log.timestamp}): ${log.action}</p>
+      </div>
+    `).join('') : '<p>No activity yet.</p>';
+  }
+  const ctx = document.getElementById('analyticsChart')?.getContext('2d');
+  if (ctx) {
+    if (analyticsChart) analyticsChart.destroy();
+    const categories = ['Tech', 'Healthcare', 'Education', 'Environment'];
+    const ideaCounts = categories.map(category => ideas.filter(idea => idea.category === category).length);
+    analyticsChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: categories,
+        datasets: [{
+          label: 'Ideas per Category',
+          data: ideaCounts,
+          backgroundColor: [
+            'rgba(32, 201, 151, 0.7)',
+            'rgba(0, 123, 255, 0.7)',
+            'rgba(220, 53, 69, 0.7)',
+            'rgba(253, 126, 20, 0.7)'
+          ],
+          borderColor: [
+            'rgba(32, 201, 151, 1)',
+            'rgba(0, 123, 255, 1)',
+            'rgba(220, 53, 69, 1)',
+            'rgba(253, 126, 20, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Number of Ideas',
+              color: document.body.getAttribute('data-theme') === 'dark' ? '#e9ecef' : '#2c3e50'
+            },
+            ticks: {
+              color: document.body.getAttribute('data-theme') === 'dark' ? '#e9ecef' : '#2c3e50'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Category',
+              color: document.body.getAttribute('data-theme') === 'dark' ? '#e9ecef' : '#2c3e50'
+            },
+            ticks: {
+              color: document.body.getAttribute('data-theme') === 'dark' ? '#e9ecef' : '#2c3e50'
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            labels: {
+              color: document.body.getAttribute('data-theme') === 'dark' ? '#e9ecef' : '#2c3e50'
+            }
+          }
+        }
+      }
+    });
+  }
+}
+
+// Export analytics
+function exportAnalytics() {
+  if (!currentUser || !currentUser.isDeveloper) {
+    showToast('Access restricted to developer', 'error');
+    return;
+  }
+  fetchData('analytics').then(data => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `analytics_${getTimestamp().replace(/[: ]/g, '_')}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Analytics exported successfully', 'success');
+    logActivity(currentUser.username, 'exported analytics');
+  });
+}
+
+// Log activity
+async function logActivity(username, action) {
+  const activity = {
+    username: username || 'Anonymous',
+    action,
+    timestamp: getTimestamp()
+  };
+  await saveData('activity_log', activity);
+}
+</script>
 </body>
-
 </html>
